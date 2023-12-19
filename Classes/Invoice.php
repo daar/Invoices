@@ -1,12 +1,13 @@
 <?php
+
 /**
-  * This file is part of consoletvs/invoices.
-  *
-  * (c) Erik Campobadal <soc@erik.cat>
-  *
-  * For the full copyright and license information, please view the LICENSE
-  * file that was distributed with this source code.
-  */
+ * This file is part of consoletvs/invoices.
+ *
+ * (c) Erik Campobadal <soc@erik.cat>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace ConsoleTVs\Invoices\Classes;
 
@@ -14,6 +15,24 @@ use Carbon\Carbon;
 use ConsoleTVs\Invoices\Traits\Setters;
 use Illuminate\Support\Collection;
 use Storage;
+
+function bcmul_alternative($n, $m, $dec = 0)
+{
+    $value = $n * $m;
+    if ($dec) {
+        $value = round($value, $dec);
+    }
+    return $value;
+}
+
+function bcadd_alternative($n, $m, $dec = 0)
+{
+    $value = $n + $m;
+    if ($dec) {
+        $value = round($value, $dec);
+    }
+    return $value;
+}
 
 /**
  * This is the Invoice class.
@@ -225,7 +244,7 @@ class Invoice
             'name'       => $name,
             'price'      => $price,
             'ammount'    => $ammount,
-            'totalPrice' => number_format(bcmul($price, $ammount, $this->decimals), $this->decimals),
+            'totalPrice' => number_format(bcmul_alternative($price, $ammount, $this->decimals), $this->decimals),
             'id'         => $id,
             'imageUrl'   => $imageUrl,
         ]));
@@ -256,7 +275,7 @@ class Invoice
      */
     public function formatCurrency()
     {
-        $currencies = json_decode(file_get_contents(__DIR__.'/../Currencies.json'));
+        $currencies = json_decode(file_get_contents(__DIR__ . '/../Currencies.json'));
         $currency = $this->currency;
 
         return $currencies->$currency;
@@ -272,7 +291,7 @@ class Invoice
     private function subTotalPrice()
     {
         return $this->items->sum(function ($item) {
-            return bcmul($item['price'], $item['ammount'], $this->decimals);
+            return bcmul_alternative($item['price'], $item['ammount'], $this->decimals);
         });
     }
 
@@ -297,7 +316,7 @@ class Invoice
      */
     private function totalPrice()
     {
-        return bcadd($this->subTotalPrice(), $this->taxPrice(), $this->decimals);
+        return bcadd_alternative($this->subTotalPrice(), $this->taxPrice(), $this->decimals);
     }
 
     /**
@@ -323,18 +342,18 @@ class Invoice
     {
         if (is_null($tax_rate)) {
             $tax_total = 0;
-            foreach($this->tax_rates as $taxe){
+            foreach ($this->tax_rates as $taxe) {
                 if ($taxe['tax_type'] == 'percentage') {
-                    $tax_total += bcdiv(bcmul($taxe['tax'], $this->subTotalPrice(), $this->decimals), 100, $this->decimals);
+                    $tax_total += bcdiv(bcmul_alternative($taxe['tax'], $this->subTotalPrice(), $this->decimals), 100, $this->decimals);
                     continue;
                 }
                 $tax_total += $taxe['tax'];
             }
             return $tax_total;
         }
-        
+
         if ($tax_rate->tax_type == 'percentage') {
-            return bcdiv(bcmul($tax_rate->tax, $this->subTotalPrice(), $this->decimals), 100, $this->decimals);
+            return bcdiv(bcmul_alternative($tax_rate->tax, $this->subTotalPrice(), $this->decimals), 100, $this->decimals);
         }
 
         return $tax_rate->tax;
@@ -423,8 +442,8 @@ class Invoice
      */
     public function shouldDisplayImageColumn()
     {
-        foreach($this->items as $item){
-            if($item['imageUrl'] != null){
+        foreach ($this->items as $item) {
+            if ($item['imageUrl'] != null) {
                 return true;
             }
         }
