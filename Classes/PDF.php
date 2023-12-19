@@ -1,14 +1,15 @@
 <?php
-/**
-  * This file is part of consoletvs/invoices.
-  *
-  * (c) Erik Campobadal <soc@erik.cat>
-  *
-  * For the full copyright and license information, please view the LICENSE
-  * file that was distributed with this source code.
-  */
 
-namespace ConsoleTVs\Invoices\Classes;
+/**
+ * This file is part of daar/invoices.
+ *
+ * (c) Erik Campobadal <soc@erik.cat>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Daar\Invoices\Classes;
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -26,7 +27,7 @@ class PDF
      *
      * @method generate
      *
-     * @param ConsoleTVs\Invoices\Classes\Invoice $invoice
+     * @param Daar\Invoices\Classes\Invoice $invoice
      * @param string                              $template
      *
      * @return Dompdf\Dompdf
@@ -46,7 +47,7 @@ class PDF
             'ssl' => [
                 'verify_peer'      => false,
                 'verify_peer_name' => false,
-                'allow_self_signed'=> true,
+                'allow_self_signed' => true,
             ],
         ]);
 
@@ -54,7 +55,7 @@ class PDF
 
         $GLOBALS['with_pagination'] = $invoice->with_pagination;
 
-        $pdf->loadHtml(View::make('invoices::'.$template, ['invoice' => $invoice]));
+        $pdf->loadHtml(View::make('invoices::' . $template, ['invoice' => $invoice]));
         $pdf->render();
 
         return $pdf;

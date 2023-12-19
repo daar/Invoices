@@ -1,10 +1,16 @@
 {
-    "name": "consoletvs/invoices",
+    "name": "daar/invoices",
     "description": "Generate PDF invoices for your customers in laravel",
     "type": "library",
     "keywords": [
-        "Laravel", "Invoices", "Generate", "Create",
-        "Open Source", "Customers", "PDF", "Erik Campobadal"
+        "Laravel",
+        "Invoices",
+        "Generate",
+        "Create",
+        "Open Source",
+        "Customers",
+        "PDF",
+        "Erik Campobadal"
     ],
     "require": {
         "ext-bcmath": "*",
@@ -19,16 +25,20 @@
             "name": "Erik Campobadal",
             "email": "ConsoleTVs@gmail.com"
         }
+        {
+            "name": "Darius Blaszyk",
+            "email": "dhkblaszyk@gmail.com"
+        }
     ],
     "autoload": {
         "psr-4": {
-            "ConsoleTVs\\Invoices\\": "."
+            "Daar\\Invoices\\": "."
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "ConsoleTVs\\Invoices\\InvoicesServiceProvider"
+                "Daar\\Invoices\\InvoicesServiceProvider"
             ]
         }
     },

@@ -1,14 +1,15 @@
 <?php
-/**
-  * This file is part of consoletvs/invoices.
-  *
-  * (c) Erik Campobadal <soc@erik.cat>
-  *
-  * For the full copyright and license information, please view the LICENSE
-  * file that was distributed with this source code.
-  */
 
-namespace ConsoleTVs\Invoices\Traits;
+/**
+ * This file is part of daar/invoices.
+ *
+ * (c) Erik Campobadal <soc@erik.cat>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Daar\Invoices\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -224,7 +225,4 @@ trait Setters
         $this->duplicate_header = $duplicate_header;
         return $this;
     }
-
-
-    
 }

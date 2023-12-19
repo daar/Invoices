@@ -3,9 +3,9 @@
 <p align="center">
 <a href="https://styleci.io/repos/92863426"><img src="https://styleci.io/repos/92863426/shield?branch=master&style=flat" alt="StyleCI Status"></a>
 <a href="https://styleci.io/repos/92863426"><img src="https://img.shields.io/badge/Built_for-Laravel-orange.svg" alt="Build For Laravel"></a>
-<a href="https://packagist.org/packages/consoletvs/invoices"><img src="https://poser.pugx.org/consoletvs/invoices/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/consoletvs/invoices"><img src="https://poser.pugx.org/consoletvs/invoices/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/consoletvs/invoices"><img src="https://poser.pugx.org/consoletvs/invoices/license.svg" alt="License"></a>
+<a href="https://packagist.org/packages/daar/invoices"><img src="https://poser.pugx.org/daar/invoices/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/daar/invoices"><img src="https://poser.pugx.org/daar/invoices/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/daar/invoices"><img src="https://poser.pugx.org/daar/invoices/license.svg" alt="License"></a>
 </p>
 
 ## What is Invoices?
@@ -20,7 +20,7 @@ This is a sample invoice generated using this library:
 ![Sample Invoice](https://i.gyazo.com/768f5b59791162e432f9cdfa15f017bc.png)
 
 ```php
-$invoice = \ConsoleTVs\Invoices\Classes\Invoice::make()
+$invoice = \Daar\Invoices\Classes\Invoice::make()
                 ->addItem('Test Item', 10.25, 2, 1412)
                 ->addItem('Test Item 2', 5, 2, 923)
                 ->addItem('Test Item 3', 15.55, 5, 42)

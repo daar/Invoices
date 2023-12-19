@@ -1,14 +1,14 @@
 ## Installation
 
 ```
-composer require consoletvs/invoices
+composer require daar/invoices
 ```
 
 
 Example Usage:
 
 ```php
-$invoice = \ConsoleTVs\Invoices\Classes\Invoice::make()
+$invoice = \Daar\Invoices\Classes\Invoice::make()
                 ->addItem('Test Item', 10.25, 2, 1412)
                 ->addItem('Test Item 2', 5, 2, 923)
                 ->addItem('Test Item 3', 15.55, 5, 42)
@@ -47,7 +47,7 @@ $invoice = \ConsoleTVs\Invoices\Classes\Invoice::make()
 
 
 
-ConsoleTVs\Invoices\InvoicesServiceProvider
+Daar\Invoices\InvoicesServiceProvider
 ===============
 
 This is the InvoicesServiceProvider class.
@@ -56,7 +56,7 @@ This is the InvoicesServiceProvider class.
 
 
 * Class name: InvoicesServiceProvider
-* Namespace: ConsoleTVs\Invoices
+* Namespace: Daar\Invoices
 * Parent class: Illuminate\Support\ServiceProvider
 
 
@@ -71,7 +71,7 @@ Methods
 
 ### boot
 
-    void ConsoleTVs\Invoices\InvoicesServiceProvider::boot()
+    void Daar\Invoices\InvoicesServiceProvider::boot()
 
 Bootstrap any application services.
 
@@ -84,7 +84,7 @@ Bootstrap any application services.
 
 ### register
 
-    void ConsoleTVs\Invoices\InvoicesServiceProvider::register()
+    void Daar\Invoices\InvoicesServiceProvider::register()
 
 Register any application services.
 
@@ -118,7 +118,7 @@ Register any application services.
 
 
 
-ConsoleTVs\Invoices\Classes\PDF
+Daar\Invoices\Classes\PDF
 ===============
 
 This is the PDF class.
@@ -127,7 +127,7 @@ This is the PDF class.
 
 
 * Class name: PDF
-* Namespace: ConsoleTVs\Invoices\Classes
+* Namespace: Daar\Invoices\Classes
 
 
 
@@ -141,7 +141,7 @@ Methods
 
 ### generate
 
-    \Dompdf\Dompdf\Dompdf ConsoleTVs\Invoices\Classes\PDF::generate(\ConsoleTVs\Invoices\Classes\ConsoleTVs\Invoices\Classes\Invoice $invoice, string $template)
+    \Dompdf\Dompdf\Dompdf Daar\Invoices\Classes\PDF::generate(\Daar\Invoices\Classes\Daar\Invoices\Classes\Invoice $invoice, string $template)
 
 Generate the PDF.
 
@@ -152,7 +152,7 @@ Generate the PDF.
 
 
 #### Arguments
-* $invoice **ConsoleTVs\Invoices\Classes\ConsoleTVs\Invoices\Classes\Invoice**
+* $invoice **Daar\Invoices\Classes\Daar\Invoices\Classes\Invoice**
 * $template **string**
 
 
@@ -192,7 +192,7 @@ Generate the PDF.
 
 
 
-ConsoleTVs\Invoices\Classes\Invoice
+Daar\Invoices\Classes\Invoice
 ===============
 
 This is the Invoice class.
@@ -201,7 +201,7 @@ This is the Invoice class.
 
 
 * Class name: Invoice
-* Namespace: ConsoleTVs\Invoices\Classes
+* Namespace: Daar\Invoices\Classes
 
 
 
@@ -235,7 +235,7 @@ Invoice template.
 
 ### $items
 
-    public \ConsoleTVs\Invoices\Classes\Illuminate\Support\Collection $items
+    public \Daar\Invoices\Classes\Illuminate\Support\Collection $items
 
 Invoice item collection.
 
@@ -378,7 +378,7 @@ Invoice Footnote.
 
 ### $pdf
 
-    private \ConsoleTVs\Invoices\Classes\Dompdf\Dompdf $pdf
+    private \Daar\Invoices\Classes\Dompdf\Dompdf $pdf
 
 Stores the PDF object.
 
@@ -393,7 +393,7 @@ Methods
 
 ### __construct
 
-    mixed ConsoleTVs\Invoices\Classes\Invoice::__construct(string $name)
+    mixed Daar\Invoices\Classes\Invoice::__construct(string $name)
 
 Create a new invoice instance.
 
@@ -409,7 +409,7 @@ Create a new invoice instance.
 
 ### make
 
-    \ConsoleTVs\Invoices\Classes\ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::make(string $name)
+    \Daar\Invoices\Classes\Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::make(string $name)
 
 Return a new instance of Invoice.
 
@@ -425,7 +425,7 @@ Return a new instance of Invoice.
 
 ### template
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::template(string $template)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::template(string $template)
 
 Select template for invoice.
 
@@ -438,7 +438,7 @@ Select template for invoice.
 
 ### addItem
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::addItem(string $name, integer $price, integer $ammount, string $id)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::addItem(string $name, integer $price, integer $ammount, string $id)
 
 Adds an item to the invoice.
 
@@ -457,7 +457,7 @@ Adds an item to the invoice.
 
 ### popItem
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::popItem()
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::popItem()
 
 Pop the last invoice item.
 
@@ -470,7 +470,7 @@ Pop the last invoice item.
 
 ### formatCurrency
 
-    \ConsoleTVs\Invoices\Classes\stdClass ConsoleTVs\Invoices\Classes\Invoice::formatCurrency()
+    \Daar\Invoices\Classes\stdClass Daar\Invoices\Classes\Invoice::formatCurrency()
 
 Return the currency object.
 
@@ -483,7 +483,7 @@ Return the currency object.
 
 ### subTotalPrice
 
-    integer ConsoleTVs\Invoices\Classes\Invoice::subTotalPrice()
+    integer Daar\Invoices\Classes\Invoice::subTotalPrice()
 
 Return the subtotal invoice price.
 
@@ -496,7 +496,7 @@ Return the subtotal invoice price.
 
 ### totalPrice
 
-    integer ConsoleTVs\Invoices\Classes\Invoice::totalPrice()
+    integer Daar\Invoices\Classes\Invoice::totalPrice()
 
 Return the total invoce price after aplying the tax.
 
@@ -509,7 +509,7 @@ Return the total invoce price after aplying the tax.
 
 ### taxPrice
 
-    float ConsoleTVs\Invoices\Classes\Invoice::taxPrice()
+    float Daar\Invoices\Classes\Invoice::taxPrice()
 
 taxPrice.
 
@@ -522,7 +522,7 @@ taxPrice.
 
 ### generate
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::generate()
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::generate()
 
 Generate the PDF.
 
@@ -535,7 +535,7 @@ Generate the PDF.
 
 ### download
 
-    \ConsoleTVs\Invoices\Classes\response ConsoleTVs\Invoices\Classes\Invoice::download(string $name)
+    \Daar\Invoices\Classes\response Daar\Invoices\Classes\Invoice::download(string $name)
 
 Downloads the generated PDF.
 
@@ -551,7 +551,7 @@ Downloads the generated PDF.
 
 ### shouldDisplayImageColumn
 
-    \ConsoleTVs\Invoices\Classes\response ConsoleTVs\Invoices\Classes\Invoice::shouldDisplayImageColumn()
+    \Daar\Invoices\Classes\response Daar\Invoices\Classes\Invoice::shouldDisplayImageColumn()
 
 Return true/false if one item contains image.
 Determine if we should display or not the image column on the invoice.
@@ -564,7 +564,7 @@ Determine if we should display or not the image column on the invoice.
 
 ### show
 
-    \ConsoleTVs\Invoices\Classes\response ConsoleTVs\Invoices\Classes\Invoice::show(string $name)
+    \Daar\Invoices\Classes\response Daar\Invoices\Classes\Invoice::show(string $name)
 
 Show the PDF in the browser.
 
@@ -580,7 +580,7 @@ Show the PDF in the browser.
 
 ### name
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::name(string $name)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::name(string $name)
 
 Set the invoice name.
 
@@ -596,7 +596,7 @@ Set the invoice name.
 
 ### number
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::number(integer $number)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::number(integer $number)
 
 Set the invoice number.
 
@@ -612,7 +612,7 @@ Set the invoice number.
 
 ### decimals
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::decimals(integer $decimals)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::decimals(integer $decimals)
 
 Set the invoice decimal precision.
 
@@ -628,7 +628,7 @@ Set the invoice decimal precision.
 
 ### tax
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::tax(float $tax)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::tax(float $tax)
 
 Set the invoice tax.
 
@@ -644,7 +644,7 @@ Set the invoice tax.
 
 ### taxType
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::taxType(string $tax_type)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::taxType(string $tax_type)
 
 Set the invoice tax type.
 
@@ -660,7 +660,7 @@ Set the invoice tax type.
 
 ### logo
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::logo(string $logo_url)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::logo(string $logo_url)
 
 Set the invoice logo URL.
 
@@ -676,7 +676,7 @@ Set the invoice logo URL.
 
 ### date
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::date(\Carbon\Carbon $date)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::date(\Carbon\Carbon $date)
 
 Set the invoice date.
 
@@ -692,7 +692,7 @@ Set the invoice date.
 
 ### notes
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::notes(string $notes)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::notes(string $notes)
 
 Set the invoice notes.
 
@@ -708,7 +708,7 @@ Set the invoice notes.
 
 ### business
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::business(array $details)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::business(array $details)
 
 Set the invoice business details.
 
@@ -724,7 +724,7 @@ Set the invoice business details.
 
 ### customer
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::customer(array $details)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::customer(array $details)
 
 Set the invoice customer details.
 
@@ -740,7 +740,7 @@ Set the invoice customer details.
 
 ### footnote
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::footnote(string $footnote)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::footnote(string $footnote)
 
 Set the invoice footnote.
 
@@ -756,7 +756,7 @@ Set the invoice footnote.
 
 ### due_date
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::due_date(Carbon $due_date)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::due_date(Carbon $due_date)
 
 Set the invoice due date.
 
@@ -781,7 +781,7 @@ Array of tax rates for invoices.
 
 ### with_pagination
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::with_pagination(boolean $with_pagination)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::with_pagination(boolean $with_pagination)
 
 If true and page count are higher than 1, pagination will show at the bottom.
 
@@ -797,7 +797,7 @@ If true and page count are higher than 1, pagination will show at the bottom.
 
 ### with_pagination
 
-    \ConsoleTVs\Invoices\Classes\Invoice ConsoleTVs\Invoices\Classes\Invoice::duplicate_header(boolean $duplicate_header)
+    \Daar\Invoices\Classes\Invoice Daar\Invoices\Classes\Invoice::duplicate_header(boolean $duplicate_header)
 
 If true header will be duplicated on each page.
 

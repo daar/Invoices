@@ -1,14 +1,15 @@
 <?php
-/**
-  * This file is part of consoletvs/invoices.
-  *
-  * (c) Erik Campobadal <soc@erik.cat>
-  *
-  * For the full copyright and license information, please view the LICENSE
-  * file that was distributed with this source code.
-  */
 
-namespace ConsoleTVs\Invoices;
+/**
+ * This file is part of daar/invoices.
+ *
+ * (c) Erik Campobadal <soc@erik.cat>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Daar\Invoices;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -26,11 +27,11 @@ class InvoicesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/Templates', 'invoices');
+        $this->loadViewsFrom(__DIR__ . '/Templates', 'invoices');
 
         $this->publishes([
-            __DIR__.'/Templates'           => resource_path('views/vendor/invoices'),
-            __DIR__.'/Config/invoices.php' => config_path('invoices.php'),
+            __DIR__ . '/Templates'           => resource_path('views/vendor/invoices'),
+            __DIR__ . '/Config/invoices.php' => config_path('invoices.php'),
         ], 'invoices');
     }
 
@@ -42,7 +43,8 @@ class InvoicesServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/Config/invoices.php', 'invoices'
+            __DIR__ . '/Config/invoices.php',
+            'invoices'
         );
     }
 }

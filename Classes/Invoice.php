@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of consoletvs/invoices.
+ * This file is part of daar/invoices.
  *
  * (c) Erik Campobadal <soc@erik.cat>
  *
@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace ConsoleTVs\Invoices\Classes;
+namespace Daar\Invoices\Classes;
 
 use Carbon\Carbon;
-use ConsoleTVs\Invoices\Traits\Setters;
+use Daar\Invoices\Traits\Setters;
 use Illuminate\Support\Collection;
 use Storage;
 
@@ -202,7 +202,7 @@ class Invoice
      *
      * @param string $name
      *
-     * @return ConsoleTVs\Invoices\Classes\Invoice
+     * @return Daar\Invoices\Classes\Invoice
      */
     public static function make($name = 'Invoice')
     {
